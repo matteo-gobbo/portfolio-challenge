@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import axios from "axios"
-import { IDataApi, IHeroContent, IUserInfo } from './@types';
-import './App.css'
+import { IHeroContent, IUserInfo } from './@types';
 import Icons from './components/Icons';
 import Avatar from './components/Avatar';
 import Hero from './components/Hero';
 import { MyGlobalContext } from './context/heroContext';
+import { fetchDataFromUserApi } from './api/userAPI';
+import './App.css'
 
 function App() {
 
@@ -74,13 +74,11 @@ function App() {
 
   useEffect(() => {
 
-    const fetchDataFromApi = async () => {
-      const { data }: { data: IDataApi } = await axios.get('https://randomuser.me/api');
+    (async () => {
+      const data = await fetchDataFromUserApi()
       setUserInfo(data.results[0])
-      return data
-    }
-
-    fetchDataFromApi()
+    })()
+    
   }, [])
   
   return (
