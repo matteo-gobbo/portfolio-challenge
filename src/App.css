@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: lightgrey;
+  height: 200px;
+  border-bottom: 1px solid grey;
+}
+
+.avatar {
+  margin-top: -100px;
+  z-index: 9;
+}
+
+.avatar .figure-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar .figure-wrapper figure {
+  background-color: white;
+  height: 150px;
+  width: 150px;
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+
+.avatar .figure-wrapper figure img{
+  border-radius: 50%;
+  height: 100%;
+  padding: 2px;
+  width: 100%;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.hero h3 {
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 500px;
+}
+
+.icons .icon {
+  font-size: 30px;
+  border-top: 3px solid transparent;
+  padding-top: 8px;
+}
+
+.icons .icon.active {
+  border-top: 3px solid green;
+  color: green;
+  cursor: pointer;
+  padding-top: 8px;
+  position: relative;
+}
+
+.icons .icon.active::before, .icons .icon.active::after {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+  margin-bottom: 3px;
+}
+
+.icons .icon.active::before {
+  border-color: transparent;
+	border-bottom-color: green;
+	border-width: 4px;
+	margin-left: -4px;
+}
+
+.icons .icon.active::after {
+	border-color: transparent;
+	border-bottom-color: green;
+	border-width: 4px;
+	margin-left: -4px;
+}
